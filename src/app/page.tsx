@@ -408,6 +408,12 @@ const HomePage: React.FC = () => {
               />
             </div> */}
             <BeforeAfterSlider />
+            <div className="pt-10">
+              <h3 className="text-xl font-semibold mb-4 text-center">The Difference</h3>
+              <p className="text-gray-700 text-center">
+                Unlike our competitors, Canadian Columns do not install raw fiberglass columns. We pride ourselves in delivering painted, maintenance free, fiberglass columns to our customers.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -514,7 +520,7 @@ const HomePage: React.FC = () => {
               <blockquote
                 className={`transition-opacity duration-1000 ${fade} text-gray-600 text-lg`}
               >
-                "{testimonialsData[currentTestimonial].quote}"
+                `{testimonialsData[currentTestimonial].quote}`
               </blockquote>
               <p
                 className={`transition-opacity duration-1000 ${fade} text-sm text-gray-500 mt-2`}
