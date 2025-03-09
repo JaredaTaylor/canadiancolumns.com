@@ -1,14 +1,15 @@
 "use client";
 /* TODO:
-    - add 'what sets us apart' section
     - style contact section
     - setup contact form
     - SEO
+    - links to social media
 */
 
 import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import Image from 'next/image';
 import Head from 'next/head';
 
@@ -114,6 +115,7 @@ const BeforeAfterSlider = () => {
           layout="fill"
           objectFit="cover"
           className="rounded-lg"
+          priority={true}
         />
       </div>
 
@@ -128,6 +130,7 @@ const BeforeAfterSlider = () => {
           layout="fill"
           objectFit="cover"
           className="rounded-lg"
+          priority={true}
         />
       </div>
 
@@ -287,6 +290,25 @@ const HomePage: React.FC = () => {
 
   return (
     <>
+      {/* <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "Canadian Columns",
+          "url": "https://canadiancolumns.ca",
+          "telephone": "905-447-5728",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Main Street",
+            "addressLocality": "Toronto",
+            "addressRegion": "ON",
+            "postalCode": "M1A 1A1",
+            "addressCountry": "CA"
+          },
+          "openingHours": "Mo-Fr 09:00-17:00",
+          "image": "https://canadiancolumns.ca/img/logo.png"
+        }
+      </script> */}
       <Head>
         <link rel="icon" href="/img/home-favicon.ico" />
         <title>Canadian Columns | High-Quality Fiberglass Columns & Installations</title>
@@ -297,7 +319,7 @@ const HomePage: React.FC = () => {
         <nav className="bg-[#FF0000] text-white py-4 sticky top-0 z-50 shadow-lg">
           <div className="container mx-auto px-4 flex justify-between items-center">
             <div className="flex items-center space-x-4">
-              <Image src={companyInfo.logo} alt="Company Logo" width={30} height={30} />
+              <Image src={companyInfo.logo} alt="Company Logo" width={30} height={30} priority={true} />
               <h1 className="text-2xl font-bold">{companyInfo.name}</h1>
             </div>
             {/* Mobile Menu Button */}
@@ -344,6 +366,7 @@ const HomePage: React.FC = () => {
                 className={`absolute inset-0 transition-opacity duration-1000 ${
                   index === currentImage ? "opacity-100" : "opacity-0"
                 }`}
+                priority={true}
               />
             ))}
           </div>
@@ -520,7 +543,7 @@ const HomePage: React.FC = () => {
               <blockquote
                 className={`transition-opacity duration-1000 ${fade} text-gray-600 text-lg`}
               >
-                `{testimonialsData[currentTestimonial].quote}`
+                {testimonialsData[currentTestimonial].quote}
               </blockquote>
               <p
                 className={`transition-opacity duration-1000 ${fade} text-sm text-gray-500 mt-2`}
@@ -534,13 +557,13 @@ const HomePage: React.FC = () => {
                 className="text-[#FF0000]"
               >
                 <FontAwesomeIcon icon={faArrowLeft} size="lg" />
-              </button>
+            </button>
               <button
                 onClick={handleNext}
                 className="text-[#FF0000]"
               >
                 <FontAwesomeIcon icon={faArrowRight} size="lg" />
-              </button>
+            </button>
             </div>
           </div>
         </section>
@@ -565,6 +588,22 @@ const HomePage: React.FC = () => {
 
         {/* Footer Section */}
         <footer className="bg-gray-800 text-white py-8">
+        <div className="container mx-auto space-x-4 pb-4 text-center">
+            <a
+              href="https://www.facebook.com/profile.php?id=61569483483877"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faFacebook} className="text-blue-600 hover:text-blue-800 text-2xl" />
+            </a>
+            <a
+              href="https://www.instagram.com/canadiancolumns/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faInstagram} className="text-blue-600 hover:text-blue-800 text-2xl" />
+            </a>
+          </div>
           <div className="container mx-auto px-4 text-center">
             <p>&copy; {new Date().getFullYear()} {companyInfo.name}. All rights reserved.</p>
           </div>
