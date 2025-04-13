@@ -79,7 +79,7 @@ const landingQuotes = [
 
 // BEFORE AFTER COMPONENT
 const BeforeAfterSlider = () => {
-  const [sliderPosition, setSliderPosition] = useState(50);
+  const [sliderPosition, setSliderPosition] = useState(70);
   const containerRef = useRef<HTMLDivElement>(null);
   const [aspectRatio, setAspectRatio] = useState(1);
   const [isDragging, setIsDragging] = useState(false);
@@ -106,7 +106,7 @@ const BeforeAfterSlider = () => {
   };
 
   return (
-    <div ref={containerRef} className="relative w-full mx-auto" style={{ aspectRatio }}>
+    <div ref={containerRef} className="relative w-full mx-auto lg:" style={{ aspectRatio }}>
       {/* AFTER Image (Background) */}
       <div className="absolute inset-0 w-full h-full">
         <Image
@@ -379,7 +379,7 @@ const HomePage: React.FC = () => {
                 {landingQuotes.map((quote, index) => (
                   <h1
                     key={index}
-                    className={`xs:text-1x1 sm:text-2xl md:text-4xl lg:text-5xl uppercase font-bold inline-block w-full text-center whitespace-normal break-words`}
+                    className={`xs:text-1x1 sm:text-2xl md:text-3xl lg:text-4xl uppercase font-bold inline-block w-full text-center whitespace-normal break-words`}
                   >
                     {quote}
                   </h1>
@@ -387,7 +387,7 @@ const HomePage: React.FC = () => {
               </div>
             </div>
             <hr className="border-t border-white w-1/2 mb-4" />
-            <p className="text-lg md:text-xl">SERVING THE PETERBOROUGH, KAWARTHA & DURHAM AREAS</p>
+            <p className="text-sm md:text-xl">SERVING THE PETERBOROUGH, KAWARTHA & DURHAM AREAS</p>
           </div>
         </section>
 
@@ -395,7 +395,7 @@ const HomePage: React.FC = () => {
 
         {/* About Section */}
         <section id="about" className="py-20 bg-white">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto lg:px-20 px-6"> {/* Check sizing on mobile for padding */}
             <div className="pb-10">
               <h2 className="text-2xl font-semibold mb-4 text-center">About Us</h2>
               <h3 className="text-xl font-semibold mb-4 text-center">Pillar & Column Replacement</h3>
@@ -430,11 +430,13 @@ const HomePage: React.FC = () => {
                 className="rounded-lg"
               />
             </div> */}
-            <BeforeAfterSlider />
+            <div className="container lg:px-40">
+              <BeforeAfterSlider />
+            </div>
             <div className="pt-10">
               <h3 className="text-xl font-semibold mb-4 text-center">The Difference</h3>
               <p className="text-gray-700 text-center">
-                Unlike our competitors, Canadian Columns do not install raw fiberglass columns. We pride ourselves in delivering painted, maintenance free, fiberglass columns to our customers.
+                Unlike our competitors, Canadian Columns does NOT install raw fiberglass columns. We pride ourselves in delivering painted, maintenance free, fiberglass columns to our customers.
               </p>
             </div>
           </div>
@@ -594,14 +596,14 @@ const HomePage: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FontAwesomeIcon icon={faFacebook} className="text-blue-600 hover:text-blue-800 text-2xl" />
+              <FontAwesomeIcon icon={faFacebook} className="text-red-600 hover:text-red-800 text-2xl" />
             </a>
             <a
               href="https://www.instagram.com/canadiancolumns/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FontAwesomeIcon icon={faInstagram} className="text-blue-600 hover:text-blue-800 text-2xl" />
+              <FontAwesomeIcon icon={faInstagram} className="text-red-600 hover:text-red-800 text-2xl" />
             </a>
           </div>
           <div className="container mx-auto px-4 text-center">
