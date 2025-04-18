@@ -576,14 +576,28 @@ const HomePage: React.FC = () => {
             <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
             <p className="text-gray-700 mb-6">Have a question or need a quote? Feel free to reach out to us.</p>
             <div className="flex flex-col items-center space-y-4">
-              <a href={`mailto:${companyInfo.email}?subject=Inquiry%20about%20Fiberglass%20Columns`} className="text-blue-600 hover:underline text-lg">{companyInfo.email}</a>
+              {/* <a href={`mailto:${companyInfo.email}?subject=Inquiry%20about%20Fiberglass%20Columns`} className="text-blue-600 hover:underline text-lg">{companyInfo.email}</a> */}
               <a href={`tel:${companyInfo.number}`} className="text-blue-600 hover:underline text-lg">{companyInfo.number}</a>
-              <button
+              <form name="contact" method="POST" data-netlify="true">
+                <p>
+                  <label>Your Name: <input type="text" name="name" /></label>
+                </p>
+                <p>
+                  <label>Your Email: <input type="email" name="email" /></label>
+                </p>
+                <p>
+                  <label>Message: <textarea name="message"></textarea></label>
+                </p>
+                <p>
+                  <button type="submit">Send</button>
+                </p>
+              </form>
+              {/* <button
                 onClick={() => window.open("https://forms.gle/YOUR_GOOGLE_FORM_URL", "_blank", "width=600,height=800")}
                 className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 shadow-md transition"
               >
                 Open Contact Form
-              </button>
+              </button> */}
             </div>
           </div>
         </section>
