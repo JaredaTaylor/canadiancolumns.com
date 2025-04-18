@@ -38,6 +38,8 @@ export function ContactForm() {
         <div className="w-full max-w-2xl flex flex-col items-stretch">
             <form 
                 name="contact"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
                 onSubmit={handleFormSubmit}
                 className="w-full max-w-2xl p-6 bg-white rounded-lg shadow-md"
             >
