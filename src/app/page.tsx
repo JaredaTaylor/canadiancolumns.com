@@ -297,18 +297,18 @@ const HomePage: React.FC = () => {
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           "name": "Canadian Columns",
-          "url": "https://canadiancolumns.ca",
+          "url": "https://canadiancolumns.com",
           "telephone": "905-447-5728",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "123 Main Street",
-            "addressLocality": "Toronto",
+            "addressLocality": "Whitby",
             "addressRegion": "ON",
-            "postalCode": "M1A 1A1",
             "addressCountry": "CA"
           },
-          "openingHours": "Mo-Fr 09:00-17:00",
-          "image": "https://canadiancolumns.ca/img/logo.png"
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=61569483483877",
+            "https://www.instagram.com/canadiancolumns/"
+          ]
         }
       </script> */}
       <Head>
@@ -521,7 +521,7 @@ const HomePage: React.FC = () => {
               >
                 <Image
                   src={galleryImages[currentModalImage]}
-                  alt={`Gallery Modal Image ${currentModalImage + 1}`}
+                  alt={`Gallery Popout Image ${currentModalImage + 1}`}
                   layout="fill"
                   objectFit="contain"
                   className="rounded-lg"

@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Canadian Columns",
-  description: "Canadian Columns Webpage",
+  title: "Canadian Columns | High-Quality Fiberglass Columns & Installations",
+  description: "Canadian Columns specializes in high-quality fiberglass columns, pillars, and posts with lifetime warranties and professional installation.",
 };
 
 export default function RootLayout({
