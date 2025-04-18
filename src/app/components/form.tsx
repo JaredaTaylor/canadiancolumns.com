@@ -88,7 +88,7 @@ export function ContactForm() {
 
                     <div className="hidden">
                         <label>
-                            Dont fill this out if you're human:
+                            Dont fill this out if youre human:
                             <input name="bot-field" />
                         </label>
                     </div>
