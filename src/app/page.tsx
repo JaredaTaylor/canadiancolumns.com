@@ -12,6 +12,7 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import Image from 'next/image';
 import Head from 'next/head';
+import { ContactForm } from './components/form';
 
 const companyInfo = {
   name: "Canadian Columns",
@@ -176,6 +177,7 @@ const BeforeAfterSlider = () => {
     </div>
   );
 };
+
 
 
 // MAIN PAGE
@@ -578,20 +580,7 @@ const HomePage: React.FC = () => {
             <div className="flex flex-col items-center space-y-4">
               {/* <a href={`mailto:${companyInfo.email}?subject=Inquiry%20about%20Fiberglass%20Columns`} className="text-blue-600 hover:underline text-lg">{companyInfo.email}</a> */}
               <a href={`tel:${companyInfo.number}`} className="text-blue-600 hover:underline text-lg">{companyInfo.number}</a>
-              <form name="contact" method="POST" netlify hidden>
-                <p>
-                  <label>Your Name: <input type="text" name="name" /></label>
-                </p>
-                <p>
-                  <label>Your Email: <input type="email" name="email" /></label>
-                </p>
-                <p>
-                  <label>Message: <textarea name="message"></textarea></label>
-                </p>
-                <p>
-                  <button type="submit">Send</button>
-                </p>
-              </form>
+              <ContactForm />
               {/* <button
                 onClick={() => window.open("https://forms.gle/YOUR_GOOGLE_FORM_URL", "_blank", "width=600,height=800")}
                 className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 shadow-md transition"
