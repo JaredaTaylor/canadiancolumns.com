@@ -38,11 +38,10 @@ export function ContactForm() {
         <div className="w-full max-w-2xl flex flex-col items-stretch">
             <form 
                 name="contact"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
                 onSubmit={handleFormSubmit}
                 className="w-full max-w-2xl p-6 bg-white rounded-lg shadow-md"
             >
+                <input type="hidden" name="form-name" value="contact" />
                 <div className="mb-4">
                     <input
                     id="name"
@@ -86,13 +85,6 @@ export function ContactForm() {
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     ></textarea>
-                </div>
-
-                <div className="hidden">
-                    <label>
-                        Dont fill this out if youre human:
-                        <input name="bot-field" />
-                    </label>
                 </div>
 
                 <button

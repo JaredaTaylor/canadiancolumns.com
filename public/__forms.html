@@ -1,13 +1,25 @@
 <html>
     <head></head>
     <body>
-        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-            <div><input type="hidden" name="form-name" value="contact" /></div>
-            <div><input type="text" name="name" required /></div>
-            <div><input type="email" name="email" required /></div>
-            <div><input type="tel" name="phone" required /></div>
-            <div><textarea name="message" required></textarea></div>
-            <div className="hidden"><label>Dont fill this out if youre human:<input name="bot-field" /></label></div>
+        <form name="contact" method="POST" data-netlify="true" hidden>
+            <div>
+                <input type="hidden" name="form-name" value="contact" />
+            </div>
+            <div>
+                <input id="name" type="text" name="name" required />
+            </div>
+            <div>
+                <input id="email" type="email" name="email" required />
+            </div>
+            <div>
+                <input id="phone" type="tel" name="phone" required />
+            </div>
+            <div>
+                <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
+                    How can we help you?
+                </label>
+                <textarea name="message" required></textarea>
+            </div>
             <button type="submit">Send</button>
         </form>
     </body>
