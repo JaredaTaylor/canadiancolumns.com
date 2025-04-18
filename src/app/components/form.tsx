@@ -15,7 +15,7 @@ export function ContactForm() {
         });
 
         try {
-        await fetch("/", {
+        await fetch("/__forms.html", {
             method: "POST",
             headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -23,13 +23,13 @@ export function ContactForm() {
             body: data.toString(),
         });
 
-        // TODO: Success handling (e.g., show confirmation message or reset form)
-        console.log("Form submitted successfully");
-        setSubmitted(true);
+            // TODO: Success handling (e.g., show confirmation message or reset form)
+            console.log("Form submitted successfully");
+            setSubmitted(true);
 
         } catch (error) {
-        // TODO: Error handling
-        console.error("Form submission error:", error);
+            // TODO: Error handling
+            console.error("Form submission error:", error);
         }
     };
  
@@ -88,12 +88,12 @@ export function ContactForm() {
                     ></textarea>
                 </div>
 
-                    <div className="hidden">
-                        <label>
-                            Dont fill this out if youre human:
-                            <input name="bot-field" />
-                        </label>
-                    </div>
+                <div className="hidden">
+                    <label>
+                        Dont fill this out if youre human:
+                        <input name="bot-field" />
+                    </label>
+                </div>
 
                 <button
                     type="submit"
