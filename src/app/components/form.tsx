@@ -7,6 +7,10 @@ export function ContactForm() {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
+    const data = new URLSearchParams();
+    formData.forEach((value, key) => {
+        data.append(key, value.toString());
+    });
 
     try {
       await fetch("/__forms.html", {
@@ -14,7 +18,7 @@ export function ContactForm() {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: new URLSearchParams(formData as any).toString(), // cast needed for compatibility
+        body: data.toString(),
       });
 
       // TODO: Success handling (e.g., show confirmation message or reset form)
