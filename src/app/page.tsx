@@ -292,25 +292,27 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      {/* <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "Canadian Columns",
-          "url": "https://canadiancolumns.com",
-          "telephone": "905-447-5728",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Whitby",
-            "addressRegion": "ON",
-            "addressCountry": "CA"
-          },
-          "sameAs": [
-            "https://www.facebook.com/profile.php?id=61569483483877",
-            "https://www.instagram.com/canadiancolumns/"
-          ]
-        }
-      </script> */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: "Canadian Columns",
+            url: "https://canadiancolumns.com",
+            telephone: "905-447-5728",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "1023 Little Britain Road",
+              addressLocality: "Little Britain",
+              addressRegion: "ON",
+              addressCountry: "CA",
+            },
+            openingHours: "Mo-Fr 09:00-17:00",
+            image: "https://canadiancolumns.com/img/cc_logo_50.png",
+          }),
+        }}
+      />
       <Head>
         <link rel="icon" href="/img/home-favicon.ico" />
         <title>Canadian Columns | High-Quality Fiberglass Columns & Installations</title>
