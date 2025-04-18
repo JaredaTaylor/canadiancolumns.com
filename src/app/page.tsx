@@ -381,7 +381,7 @@ const HomePage: React.FC = () => {
                 {landingQuotes.map((quote, index) => (
                   <h1
                     key={index}
-                    className={`xs:text-1x1 sm:text-2xl md:text-3xl lg:text-4xl uppercase font-bold inline-block w-full text-center whitespace-normal break-words`}
+                    className={`text-lg sm:text-2xl md:text-3xl lg:text-4xl uppercase font-bold inline-block w-full text-center whitespace-normal break-words`}
                   >
                     {quote}
                   </h1>
