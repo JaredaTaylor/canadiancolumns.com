@@ -578,8 +578,7 @@ const HomePage: React.FC = () => {
             <div className="flex flex-col items-center space-y-4">
               {/* <a href={`mailto:${companyInfo.email}?subject=Inquiry%20about%20Fiberglass%20Columns`} className="text-blue-600 hover:underline text-lg">{companyInfo.email}</a> */}
               <a href={`tel:${companyInfo.number}`} className="text-blue-600 hover:underline text-lg">{companyInfo.number}</a>
-              <form name="contact" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="contact" />
+              <form name="contact" method="POST" netlify hidden>
                 <p>
                   <label>Your Name: <input type="text" name="name" /></label>
                 </p>
