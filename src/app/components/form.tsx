@@ -15,7 +15,7 @@ export function ContactForm() {
         });
 
         try {
-        await fetch("/__forms.html", {
+        await fetch("/", {
             method: "POST",
             headers: {
             "Content-Type": "application/x-www-form-urlencoded",
