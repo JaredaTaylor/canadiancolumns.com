@@ -90,7 +90,7 @@ export function ContactForm() {
 
                 <div className="mb-4">
                     <label htmlFor="from" className="block text-gray-700 font-medium mb-2">
-                        How did you hear about Canadian Columns?:
+                        How did you hear about Canadian Columns?
                     </label>
                     <select id="from" name="from" required>
                         <option value="">--Please choose an option--</option>
