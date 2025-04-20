@@ -77,7 +77,7 @@ export function ContactForm() {
 
                 <div className="mb-4">
                     <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
-                    How can we help you?
+                        How can we help you?
                     </label>
                     <textarea
                     id="message"
@@ -85,6 +85,21 @@ export function ContactForm() {
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     ></textarea>
+                </div>
+
+                <div className="mb-4">
+                    <label htmlFor="from" className="block text-gray-700 font-medium mb-2">
+                        How did you hear about Canadian Columns?:
+                    </label>
+                    <select id="from" name="from" required>
+                        <option value="">--Please choose an option--</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="web">Web Search</option>
+                        <option value="signs">Lawn Sign</option>
+                        <option value="word of mouth">Word of Mouth</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
 
                 <div className="hidden">

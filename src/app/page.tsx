@@ -16,7 +16,7 @@ import { ContactForm } from './components/form';
 
 const companyInfo = {
   name: "Canadian Columns",
-  email: "info@canadiancolumns.ca",
+  email: "rayzinsmeister@me.com",
   number: "905-447-5728",
   logo: "/img/cc_logo_50.png",
 };
@@ -301,6 +301,7 @@ const HomePage: React.FC = () => {
             name: "Canadian Columns",
             url: "https://canadiancolumns.com",
             telephone: "905-447-5728",
+            email: "rayzinsmeister@me.com",
             address: {
               "@type": "PostalAddress",
               streetAddress: "1023 Little Britain Road",
@@ -580,7 +581,7 @@ const HomePage: React.FC = () => {
             <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
             <p className="text-gray-700 mb-6">Have a question or need a quote? Feel free to reach out to us.</p>
             <div className="flex flex-col items-center space-y-4">
-              {/* <a href={`mailto:${companyInfo.email}?subject=Inquiry%20about%20Fiberglass%20Columns`} className="text-blue-600 hover:underline text-lg">{companyInfo.email}</a> */}
+              <a href={`mailto:${companyInfo.email}?subject=Inquiry%20about%20Fiberglass%20Columns`} className="text-blue-600 hover:underline text-lg">{companyInfo.email}</a>
               <a href={`tel:${companyInfo.number}`} className="text-blue-600 hover:underline text-lg">{companyInfo.number}</a>
               <ContactForm />
               {/* <button
