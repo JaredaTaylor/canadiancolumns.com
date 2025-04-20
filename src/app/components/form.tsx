@@ -24,6 +24,7 @@ export function ContactForm() {
         });
 
             // TODO: Success handling (e.g., show confirmation message or reset form)
+            form.reset();
             console.log("Form submitted successfully");
             setSubmitted(true);
 
