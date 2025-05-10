@@ -13,6 +13,7 @@ import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import Image from 'next/image';
 import Head from 'next/head';
 import { ContactForm } from './components/form';
+import { TestimonyPopup } from './components/testimony-form';
 
 const companyInfo = {
   name: "Canadian Columns",
@@ -571,6 +572,9 @@ const HomePage: React.FC = () => {
               >
                 <FontAwesomeIcon icon={faArrowRight} size="lg" />
             </button>
+            </div>
+            <div className="pt-4">
+              <TestimonyPopup />
             </div>
           </div>
         </section>
