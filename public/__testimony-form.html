@@ -1,0 +1,42 @@
+<html>
+    <head></head>
+    <body>
+        <form name="testimony" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+            <div>
+                <input type="hidden" name="form-name" value="testimony" />
+            </div>
+            <div>
+                <input id="name" type="text" name="name" required />
+            </div>
+            <div>
+                <input id="email" type="email" name="email" required />
+            </div>
+            <div>
+                <input id="phone" type="tel" name="phone" required />
+            </div>
+            <div>
+                <label for="date">Job date:</label>
+                <input type="datetime-local" id="date" name="date">
+            </div>
+            <div>
+                <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
+                    How was your experience with Canadia Columns?
+                </label>
+                <textarea name="message" required></textarea>
+            </div>
+            <div>
+                <label for="from">How did you hear about Canadian Columns?</label>
+                <select id="from" name="from" required>
+                    <option value="">--Please choose an option--</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="web">Web Search</option>
+                    <option value="signs">Lawn Sign</option>
+                    <option value="word of mouth">Word of Mouth</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </body>
+</html>
