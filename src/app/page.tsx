@@ -396,7 +396,7 @@ const HomePage: React.FC = () => {
               </div>
             </div>
             <hr className="border-t border-white w-1/2 mb-4" />
-            <p className="text-sm md:text-xl">SERVING THE PETERBOROUGH, KAWARTHA & DURHAM AREAS</p>
+            <p className="text-sm md:text-xl">SERVING THE GTA, PETERBOROUGH, KAWARTHA, DURHAM, & MORE</p>
           </div>
         </section>
 
