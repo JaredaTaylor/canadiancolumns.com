@@ -14,6 +14,7 @@ import Image from 'next/image';
 import Head from 'next/head';
 import { ContactForm } from './components/form';
 import { TestimonyPopup } from './components/testimony-form';
+import { ServiceUpdate } from './components/service-update';
 
 const companyInfo = {
   name: "Canadian Columns",
@@ -51,6 +52,8 @@ const testimonialsData = [
   { quote: "I just want to say thanks for a great job on my new columns in the front of my house. They look fabulous and you and your workers did an awesome job in taking out the old wooden ones and installing the new ones. You even took the extra step and replaced the aluminum bulk head on my porch with no extra cost to which I totally appreciate.", name: "Karen Duwyn" },
   { quote: "The new columns look awesome and we are very happy with the outcome. Your installers were incredibly efficient and very professional. Not to mention we thank you for your professional approach, management of this project, and the ease at which this was carried out. The process was totally stress free and refreshing to say the least. Moving forward, we look forward to the many maintenance free years ahead.", name: "Phil Sanders from Brampton" },
   { quote: "Thanks again for an outstanding job. We`ve used your services and expertise for several properties now and we are grateful for your attention to detail and quality workmanship. One thing that we truly appreciate is your commitment to the job. You show up daily and never let other jobs interfere with the progress on our homes. This is rare and again we are thankful.", name: "Richard from Toronto" },
+  { quote: "Canadian Columns removed my old columns and railings, disposed of them and installed new fiberglass columns. Job was left neat and clean and the new, more modern columns look amazing. Highly recommend!", name: "Wendy Arabia"},
+  { quote: "I`m extremely happy with the quality of work provided. Although I wasn`t home during the column replacement, I had full confidence it would be done right—and it absolutely was. The attention to detail was clear, from the clean caulking to the spotless job site. The finished result has really improved our home`s curb appeal. I wouldn`t hesitate to recommend this company to others. Thank you again!", name: "Brendan Slute"}
 ];
 
 const landingImages = [
@@ -397,7 +400,8 @@ const HomePage: React.FC = () => {
           </div>
         </section>
 
-
+        {/* Serive Update */}
+        <ServiceUpdate />
 
         {/* About Section */}
         <section id="about" className="py-20 bg-white">
