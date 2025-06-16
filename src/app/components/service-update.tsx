@@ -13,7 +13,6 @@ export function ServiceUpdate() {
                 </p>
                 <p className="text-gray-700 pb-4 text-justify">
                     Whether you`re dealing with cracked, aging, or outdated columns, we offer reliable, high-quality service that enhances curb appeal and structural integrity. If you`re located in the GTA or surrounding regions, we are ready to help with your next column replacement or renovation project.
-                </p>
                 <p className="text-gray-700 pb-4 text-justify">
                     Contact us today to learn how we can improve the look and safety of your property with our trusted fiberglass column services.
                 </p>
