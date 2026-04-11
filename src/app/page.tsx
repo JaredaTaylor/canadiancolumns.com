@@ -82,6 +82,35 @@ const landingQuotes = [
   "Get a free estimate for your replacement columns"
 ];
 
+const infoPopupContent = {
+  eyebrow: "Buyer Beware",
+  title: "Fiberglass columns should be properly primed and painted from day one.",
+  intro: "Unpainted or improperly finished fiberglass columns can begin to show wear quickly. These photos show what raw fiberglass can look like after only one year.",
+  body: "At Canadian Columns, every installation is completed with the proper priming and a lifetime-rated paint designed for long-term performance. That means no uncertainty, no chasing down a painter afterward, and no risk of the wrong product being used.",
+  closing: "Choose a team that follows the correct process from the start and backs the work with a lifetime warranty for a smoother, stress-free experience.",
+  contactLabel: "Free estimates available",
+  phone: "905-447-5728",
+  email: "rayzinsmeister@me.com",
+  images: [
+    {
+      src: "/popup/popup-1.jpg",
+      alt: "Example of fiberglass column wear after improper finishing",
+    },
+    {
+      src: "/popup/popup-2.jpg",
+      alt: "Close-up of deterioration on an unpainted fiberglass column",
+    },
+    {
+      src: "/popup/popup-3.jpg",
+      alt: "Fiberglass column surface damage caused by improper coating",
+    },
+    {
+      src: "/popup/popup-4.jpg",
+      alt: "Weathered fiberglass columns that were not properly painted",
+    },
+  ],
+};
+
 // BEFORE AFTER COMPONENT
 const BeforeAfterSlider = () => {
   const [sliderPosition, setSliderPosition] = useState(70);
@@ -186,6 +215,8 @@ const BeforeAfterSlider = () => {
 
 // MAIN PAGE
 const HomePage: React.FC = () => {
+  const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(true);
+
   // Testimony
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [fade, setFade] = useState("opacity-100");
@@ -267,12 +298,24 @@ const HomePage: React.FC = () => {
   const [currentModalImage, setCurrentModalImage] = useState(0);
 
   useEffect(() => {
-    if (isModalOpen) {
+    if (isModalOpen || isInfoPopupOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-  }, [isModalOpen]);
+  }, [isInfoPopupOpen, isModalOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsModalOpen(false);
+        setIsInfoPopupOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const toggleExpanded = () => {
     setExpanded(!expanded);
@@ -285,6 +328,10 @@ const HomePage: React.FC = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const closeInfoPopup = () => {
+    setIsInfoPopupOpen(false);
   };
 
   // Header
@@ -324,6 +371,95 @@ const HomePage: React.FC = () => {
         <meta name="description" content="Canadian Columns specializes in high-quality fiberglass columns, pillars, and posts with lifetime warranties and professional installation." />
       </Head>
       <div className="min-h-screen bg-gray-100 text-gray-800">
+        {isInfoPopupOpen && (
+          <div
+            className="fixed inset-0 z-[60] overflow-y-auto bg-black/70 px-4 py-6 sm:px-6"
+            onClick={closeInfoPopup}
+            aria-modal="true"
+            role="dialog"
+            aria-labelledby="homepage-info-title"
+          >
+            <div
+              className="relative mx-auto mt-16 w-full max-w-5xl overflow-hidden rounded-2xl bg-white shadow-2xl max-md:max-h-[calc(100vh-7rem)] max-md:overflow-y-auto md:my-8"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={closeInfoPopup}
+                className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-2xl text-white transition hover:bg-black"
+                aria-label="Close information popup"
+              >
+                &times;
+              </button>
+
+              <div className="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr]">
+                <div className="grid grid-cols-2 gap-2 bg-gray-200 p-2 sm:gap-3 sm:p-3">
+                  {infoPopupContent.images.map((image, index) => (
+                    <div
+                      key={index}
+                      className="relative min-h-[140px] overflow-hidden rounded-xl sm:min-h-[180px] md:min-h-[210px]"
+                    >
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        sizes="(max-width: 767px) 50vw, 33vw"
+                        className="object-cover"
+                        priority={index === 0}
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-col justify-center px-5 py-6 sm:px-8 sm:py-8">
+                  <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#FF0000]">
+                    {infoPopupContent.eyebrow}
+                  </p>
+                  <h2
+                    id="homepage-info-title"
+                    className="text-2xl font-bold leading-tight text-gray-900 sm:text-3xl"
+                  >
+                    {infoPopupContent.title}
+                  </h2>
+                  <p className="mt-4 text-sm leading-7 text-gray-600 sm:text-base">
+                    {infoPopupContent.intro}
+                  </p>
+                  <p className="mt-4 text-sm leading-7 text-gray-600 sm:text-base">
+                    {infoPopupContent.body}
+                  </p>
+                  <p className="mt-4 border-l-4 border-[#FF0000] pl-4 text-sm font-medium leading-7 text-gray-700 sm:text-base">
+                    {infoPopupContent.closing}
+                  </p>
+                  <div className="mt-6 space-y-1 text-sm text-gray-700 sm:text-base">
+                    <p className="font-semibold text-gray-900">{infoPopupContent.contactLabel}</p>
+                    <a
+                      href={`tel:${infoPopupContent.phone}`}
+                      className="block transition hover:text-[#FF0000]"
+                    >
+                      {infoPopupContent.phone}
+                    </a>
+                    <a
+                      href={`mailto:${infoPopupContent.email}`}
+                      className="block break-all transition hover:text-[#FF0000]"
+                    >
+                      {infoPopupContent.email}
+                    </a>
+                  </div>
+                  <div className="mt-6">
+                    <button
+                      type="button"
+                      onClick={closeInfoPopup}
+                      className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#FF0000] px-6 py-3 text-sm font-semibold text-white transition hover:bg-red-700"
+                    >
+                      Continue To Site
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Navigation */}
         <nav className="bg-[#FF0000] text-white py-4 sticky top-0 z-50 shadow-lg">
           <div className="container mx-auto px-4 flex justify-between items-center">
