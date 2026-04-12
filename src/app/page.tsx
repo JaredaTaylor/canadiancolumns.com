@@ -83,11 +83,11 @@ const landingQuotes = [
 ];
 
 const infoPopupContent = {
-  eyebrow: "Buyer Beware",
-  title: "Fiberglass columns should be properly primed and painted from day one.",
-  intro: "Unpainted or improperly finished fiberglass columns can begin to show wear quickly. These photos show what raw fiberglass can look like after only one year.",
-  body: "At Canadian Columns, every installation is completed with the proper priming and a lifetime-rated paint designed for long-term performance. That means no uncertainty, no chasing down a painter afterward, and no risk of the wrong product being used.",
-  closing: "Choose a team that follows the correct process from the start and backs the work with a lifetime warranty for a smoother, stress-free experience.",
+  eyebrow: "Our Process",
+  title: "Backed by over 40 years of painting expertise, we have refined our preparation and finishing process for fiberglass columns to the highest standard.",
+  intro: "Unpainted fiberglass columns will look like this. This is mold growth.",
+  body: "Properly finishing fiberglass columns is not a quick or simple process. We have seen firsthand how poor preparation leads to mold, peeling, and color fading. Our work, however, stands the test of time. Columns we completed over 14 years ago still look as flawless as the day they were finished.",
+  closing: "That is why we are confident in offering a lifetime warranty on our work.",
   contactLabel: "Free estimates available",
   phone: "905-447-5728",
   email: "rayzinsmeister@me.com",
@@ -215,7 +215,8 @@ const BeforeAfterSlider = () => {
 
 // MAIN PAGE
 const HomePage: React.FC = () => {
-  const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(true);
+  const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
+  const [isInfoPopupVisible, setIsInfoPopupVisible] = useState(false);
 
   // Testimony
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -298,6 +299,18 @@ const HomePage: React.FC = () => {
   const [currentModalImage, setCurrentModalImage] = useState(0);
 
   useEffect(() => {
+    const popupTimer = window.setTimeout(() => {
+      setIsInfoPopupOpen(true);
+
+      window.requestAnimationFrame(() => {
+        setIsInfoPopupVisible(true);
+      });
+    }, 1000);
+
+    return () => window.clearTimeout(popupTimer);
+  }, []);
+
+  useEffect(() => {
     if (isModalOpen || isInfoPopupOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -331,7 +344,10 @@ const HomePage: React.FC = () => {
   };
 
   const closeInfoPopup = () => {
-    setIsInfoPopupOpen(false);
+    setIsInfoPopupVisible(false);
+    window.setTimeout(() => {
+      setIsInfoPopupOpen(false);
+    }, 250);
   };
 
   // Header
@@ -373,14 +389,20 @@ const HomePage: React.FC = () => {
       <div className="min-h-screen bg-gray-100 text-gray-800">
         {isInfoPopupOpen && (
           <div
-            className="fixed inset-0 z-[60] overflow-y-auto bg-black/70 px-4 py-6 sm:px-6"
+            className={`fixed inset-0 z-[60] overflow-y-auto bg-black/70 px-4 py-6 transition-opacity duration-300 sm:px-6 ${
+              isInfoPopupVisible ? "opacity-100" : "opacity-0"
+            }`}
             onClick={closeInfoPopup}
             aria-modal="true"
             role="dialog"
             aria-labelledby="homepage-info-title"
           >
             <div
-              className="relative mx-auto mt-16 w-full max-w-5xl overflow-hidden rounded-2xl bg-white shadow-2xl max-md:max-h-[calc(100vh-7rem)] max-md:overflow-y-auto md:my-8"
+              className={`relative mx-auto mt-16 w-full max-w-5xl overflow-hidden rounded-2xl bg-white shadow-2xl transition-all duration-300 max-md:max-h-[calc(100vh-7rem)] max-md:overflow-y-auto md:my-8 ${
+                isInfoPopupVisible
+                  ? "translate-y-0 scale-100"
+                  : "translate-y-4 scale-[0.98]"
+              }`}
               onClick={(event) => event.stopPropagation()}
             >
               <button
@@ -536,9 +558,6 @@ const HomePage: React.FC = () => {
           </div>
         </section>
 
-        {/* Serive Update */}
-        <ServiceUpdate />
-
         {/* About Section */}
         <section id="about" className="py-20 bg-white">
           <div className="container mx-auto lg:px-20 px-6"> {/* Check sizing on mobile for padding */}
@@ -550,9 +569,6 @@ const HomePage: React.FC = () => {
               </p>
               <p className="text-gray-700 pb-4 text-justify">
                 We have replaced hundreds of columns and pillars throughout the GTA. All our columns are maintenance free fiberglass, painted to the colour of your choosing, and come with a lifetime warranty. We never outsource our work. We trust our team of highly trained specialists to uphold our strict standards of craftsmanship.
-              </p>
-              <p className="text-gray-700 pb-4 text-justify">
-              We serve the Peterborough, Kawartha Lakes and Durham Region areas. This includes Lindsay, Fenelon Falls, Omemee, Woodville, Bobcaygeon, Havelock, Apsley, Bridgenorth, Norwood, Lakefield, Port Perry, Brooklin, Uxbridge, Whitby, Oshawa, Ajax and Pickering. If you live in any of these areas, we would be happy to meet with you and provide a free estimate to replace your columns.
               </p>
               <p className="text-gray-700 pb-1 text-center">
                 Contact us today for your free estimate.
@@ -587,6 +603,9 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* Jurisdiction Section */}
+        <ServiceUpdate />
 
         {/* Services Section */}
         <section id="services" className="py-20 bg-gray-50">
