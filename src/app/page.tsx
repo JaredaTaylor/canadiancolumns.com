@@ -382,9 +382,7 @@ const HomePage: React.FC = () => {
         }}
       />
       <Head>
-        <!-- Google Tag Manager -->
-            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P8SBH23H');</script>
-        <!-- End Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P8SBH23H');</script>
         <link rel="icon" href="/img/home-favicon.ico" />
         <title>Canadian Columns | High-Quality Fiberglass Columns & Installations</title>
         <meta name="description" content="Canadian Columns specializes in high-quality fiberglass columns, pillars, and posts with lifetime warranties and professional installation." />
