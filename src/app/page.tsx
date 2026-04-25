@@ -11,7 +11,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import Image from 'next/image';
-import Head from 'next/head';
 import { ContactForm } from './components/form';
 import { TestimonyPopup } from './components/testimony-form';
 import { ServiceUpdate } from './components/service-update';
@@ -381,11 +380,6 @@ const HomePage: React.FC = () => {
           }),
         }}
       />
-      <Head>
-        <link rel="icon" href="/img/home-favicon.ico" />
-        <title>Canadian Columns | High-Quality Fiberglass Columns & Installations</title>
-        <meta name="description" content="Canadian Columns specializes in high-quality fiberglass columns, pillars, and posts with lifetime warranties and professional installation." />
-      </Head>
       <div className="min-h-screen bg-gray-100 text-gray-800">
         {isInfoPopupOpen && (
           <div
