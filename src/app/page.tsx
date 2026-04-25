@@ -14,6 +14,7 @@ import Image from 'next/image';
 import { ContactForm } from './components/form';
 import { TestimonyPopup } from './components/testimony-form';
 import { ServiceUpdate } from './components/service-update';
+import Link from "next/link";
 
 const companyInfo = {
   name: "Canadian Columns",
@@ -478,11 +479,10 @@ const HomePage: React.FC = () => {
 
         {/* Navigation */}
         <nav className="bg-[#FF0000] text-white py-4 sticky top-0 z-50 shadow-lg">
-          <div className="container mx-auto px-4 flex justify-between items-center">
-            <div className="flex items-center space-x-4">
-              <Image src={companyInfo.logo} alt="Company Logo" width={30} height={30} priority={true} />
-              <h1 className="text-2xl font-bold">{companyInfo.name}</h1>
-            </div>
+     <Link href="/" aria-label="Canadian Columns homepage" className="flex items-center space-x-4">
+  <Image src={companyInfo.logo} alt="Company Logo" width={30} height={30} priority={true} />
+  <h1 className="text-2xl font-bold">{companyInfo.name}</h1>
+</Link>
             {/* Mobile Menu Button */}
             <button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>
               ☰
